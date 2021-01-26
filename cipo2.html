@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        ElemSzam = 6
+        x = new Array()
+      maxn = 0
+      volt=false
+        most = new Date()
+        aho  = most.getMonth()+1  // aktuális hónap
+      
+        if(aho>1)   eho = aho-1   // előző hónap
+        else        eho = 12
+      
+        for( i=1 ; i<=ElemSzam ; i++ )
+        {
+          h =  Math.floor(Math.random()* 2) ? aho : eho
+          n =  Math.floor(Math.random()*28)+1
+          if (h==aho && (maxn<n)){
+              maxn = n
+          }
+          //volt e ebben a hónapban?
+          if (h==aho) {
+               volt=true
+           }
+      
+          if(h<10) h="0"+h
+          if(n<10) n="0"+n
+      
+          x[i] = h + "." + n
+          document.write( "<span class='cipoadat'>" + x[i] + " </span>" )
+        }
+        if(aho<10) aho="0"+aho
+        if(maxn<10) maxn="0"+maxn
+        document.write("<p>utolsó beszállítás:"+ aho + "." + maxn + "</p>")
+        if (volt){
+            document.write("<p>ebben a hónapban volt kiszállítás</p>")
+        }
+        else {
+            document.writeln("<p>ebben a hónapban nem volt kiszállítás</p>")
+        }
+      </script>
+      
+</head>
+<body>
+    
+</body>
+</html>
